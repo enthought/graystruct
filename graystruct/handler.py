@@ -8,8 +8,10 @@ from __future__ import absolute_import
 
 import zlib
 
-from graypy.handler import GELFHTTPHandler as BaseGELFHandler
-
+try:
+    from graypy.handler import GELFHTTPHandler as BaseGELFHandler
+except ImportError:
+    from graypy.handler import GELFHandler as BaseGELFHandler
 
 class _CompressHandler(object):
     def makePickle(self, record):
